@@ -1,0 +1,3 @@
+include ':DDRTools'
+include ':app'
+rootProject.name = "DDRToolsExample"
