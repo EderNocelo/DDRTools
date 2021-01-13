@@ -22,7 +22,7 @@ bintray {
     configurations = ['archives']
     override = true
     pkg {
-        repo = 'maven'
+        repo = 'DDRTools'
         name = 'DDRTools'
         description = "Library with commons helper methods"
         publicDownloadNumbers = true
