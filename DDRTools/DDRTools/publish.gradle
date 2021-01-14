@@ -1,7 +1,9 @@
 apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven-publish'
 
-group 'com.mx.egnocelo'
-version '0.0.1'
+
+group = 'com.mx.egnocelo'
+version = '0.0.4'
 
 project.ext {
     mavGitUrl = 'https://github.com/EderNocelo/DDRTools.git'
@@ -18,11 +20,11 @@ properties.load(new FileInputStream("local.properties"))
 bintray {
     user = properties.getProperty("bintray.user")
     key = properties.getProperty("bintray.apikey")
-    publications = ['Production']
+    publications = ['PublicationRelease']
     configurations = ['archives']
     override = true
     pkg {
-        repo = 'DDRTools'
+        repo = 'Maven'
         name = 'DDRTools'
         description = "Library with commons helper methods"
         publicDownloadNumbers = true
@@ -33,6 +35,46 @@ bintray {
             desc = "Version ${this.version}"
             released = new Date()
             vcsTag = this.version
+        }
+    }
+}
+
+def pomConfig = {
+    licenses {
+        license {
+            name "The Apache Software License, Version 2.0"
+            url "http://www.apache.org/licenses/LICENSE-2.0.txt"
+            distribution "repo"
+        }
+    }
+    developers {
+        developer {
+            id "nocelo.eder"
+            name "Eder Gomez Nocelo"
+            email "nocelo.eder@gmail.com"
+        }
+    }
+
+    scm {
+        url "https://github.com/EderNocelo"
+    }
+}
+
+project.afterEvaluate {
+    publishing {
+        publications {
+            PublicationRelease(MavenPublication) {
+                groupId this.group
+                artifactId 'ddrtools'
+                version this.version
+                pom.withXml {
+                    def root = asNode()
+                    root.appendNode('description', 'Library with commons helper methods')
+                    root.appendNode('name', 'DDRTools')
+                    root.appendNode('url', 'https://github.com/EderNocelo')
+                    root.children().last() + pomConfig
+                }
+            }
         }
     }
 }
