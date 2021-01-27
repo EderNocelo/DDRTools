@@ -2,7 +2,17 @@
 buildscript {
     ext.kotlin_version = "1.4.21"
     ext.gradle_version = "4.1.1"
-    ext.bintray_gradle = "1.8.4"
+    ext.bintray_publish = "1.0.0"
+    ext.versions = [
+            'compileSdk': 29,
+            'minSdk'    : 17,
+            'targetSdk' : 29,
+            'buildTools': '29.0.3',
+            'name'      : '0.0.1',
+            'code'      : 2,
+            'groupId'   : 'com.mx.egnocelo',
+            'artifactId': 'ddrtools',
+    ]
     repositories {
         google()
         jcenter()
@@ -10,7 +20,7 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:$gradle_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:$bintray_gradle"
+        classpath "com.github.panpf.bintray-publish:bintray-publish:$bintray_publish"
     }
 }
 
