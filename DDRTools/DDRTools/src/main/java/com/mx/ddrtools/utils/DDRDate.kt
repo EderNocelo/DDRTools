@@ -1,13 +1,29 @@
+/**
+Copyright 2021 DDRTools
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+ * */
 package com.mx.ddrtools.utils
 
+import android.text.format.DateFormat
+import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
 class DDRDate {
     companion object {
         /**
-         * Function stringDateToTimestamp
-         * Convert string date in dd-MM-yyyy format to Timestamp (Long)
+         * Convert string date of 'dd-MM-yyyy' format to Timestamp (Long)
          * @param date String
          * @return Long
          * */
@@ -18,8 +34,7 @@ class DDRDate {
         }
 
         /**
-         * Function timestampToStringDate
-         * Convert Timestamp date (Long) to Date in String (default format: dd/MM/yyyy HH:mm:ss)
+         * Convert Timestamp date (Long) to String Date (default format: dd/MM/yyyy HH:mm:ss)
          * @param date Long
          * @return String
          * */
@@ -34,21 +49,21 @@ class DDRDate {
         }
 
         /**
-         * Function monthNameByIndex
-         * Get month name by position (01 January, 02 February, etc..). It can receive String or Int position (01,1)
+         * Get month name by position. It can receive String or Int position ('01',1)
+         * Ex: 01=Enero | 2=Febrero | 3=MARZO
          * @param position Any
          * @return String
          */
-        fun monthNameByPosition(position: Any, upperCased:Boolean = false): String {
-            if (position is String || position is Int){
+        fun monthNameByPosition(position: Any, upperCased: Boolean = false): String {
+            if (position is String || position is Int) {
                 var idx = 0
-                idx = if (position is String){
+                idx = if (position is String) {
                     position.toInt()
-                }else{
+                } else {
                     position as Int
                 }
-                if (idx in 1..12){
-                    val month = String.format("%02d",idx)
+                if (idx in 1..12) {
+                    val month = String.format("%02d", idx)
                     val monthName = when {
                         month.equals("01", ignoreCase = true) -> "Enero"
                         month.equals("02", ignoreCase = true) -> "Febrero"
@@ -65,14 +80,34 @@ class DDRDate {
                         else -> ""
                     }
                     return if (upperCased) monthName.toUpperCase(Locale.getDefault()) else monthName
-                }else{
+                } else {
                     return "$idx is an unknown Month"
                 }
 
-            }else{
+            } else {
                 return "${position.javaClass} is unsupported"
             }
         }
 
+        /**
+         * Convert an string date to pretty format.
+         * Ex: '2020-01-01 00:00:00' -> 01 de Enero del 2020 a las 00:00:00
+         * @param format String
+         * @param stringDate String
+         * @return String
+         */
+        fun parseStringDateToPrettyDate(format: String, stringDate: String): String {
+            val simpleDateFormat = SimpleDateFormat(format, Locale.US)
+            val currentDate: Date
+            try {
+                currentDate = simpleDateFormat.parse(stringDate)!!
+            } catch (e: ParseException) {
+                return "Format is not supported"
+            }
+            val dayNumber = DateFormat.format("dd", currentDate) as String
+            val monthNumber = DateFormat.format("MM", currentDate) as String
+            val time = DateFormat.format("HH:mm:ss", currentDate) as String
+            return "$dayNumber de ${monthNameByPosition(monthNumber)} a las $time Hrs."
+        }
     }
 }

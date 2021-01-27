@@ -27,9 +27,8 @@ import java.util.regex.Pattern
 class DDRString {
     companion object {
         /**
-         *
-         * This function concat all string elements in Array.
-         *
+         * Concat all string elements in Array
+         * Ex: [item,item] -> 'itemitem'
          * @param elements array of strings
          * @return formed string
          */
@@ -41,9 +40,8 @@ class DDRString {
         }
 
         /**
-         *
-         * This function concat all string elements in Array with specific separator.
-         *
+         * Concat all string elements in Array with separator.
+         * Ex: [item,item] -> 'item item'
          * @param elements array of strings
          * @return formed string
          */
@@ -55,20 +53,19 @@ class DDRString {
         }
 
         /**
-         *
-         * This function concat all string elements in Array with specific separator.
-         *
+         * Concat all string elements in Array with specific separator, including prefix before item.
+         * Ex: [item,item] -> [Title item, Title item]
          * @param elements array of strings
          * @return formed string
          */
-        fun joinElements(elements: Array<String>?, title: String, separator: String): String {
+        fun joinElements(elements: Array<String>?, prefix: String, separator: String): String {
             var buildString = ""
             elements?.let {
                 it.forEachIndexed { idx, item ->
                     buildString = if ((idx + 1) == elements.size) {
-                        "$buildString$title $item"
+                        "$buildString$prefix $item"
                     } else {
-                        "$buildString$title $item$separator"
+                        "$buildString$prefix $item$separator"
                     }
                 }
             }
@@ -76,11 +73,11 @@ class DDRString {
         }
 
         /**
-         *
-         * This function generates new string with capitalized all words. Need indicates current separator
-         *
-         * @param text string
-         * @return capitalized string
+         * Creates new string with capitalized words. Indicates separator
+         * Ex: 'item item'  -> 'Item Item'
+         * @param text String
+         * @param separator String
+         * @return String
          */
         fun capitalizeByWords(text: String, separator: String): String {
             return text
@@ -90,38 +87,22 @@ class DDRString {
         }
 
         /**
-         *
-         * This function evaluates email format
-         *
+         * Evaluates if email is in correct format
          * @param email string
-         * @return boolean email is valid
+         * @return Boolean
          */
         fun isEmailValid(email: String): Boolean {
-            return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]|[\\w-]{2,}))@((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9]))|([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches()
+            return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]|[\\w-]{2,}))@((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9]))|([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$")
+                .matcher(email).matches()
         }
 
         /**
-         *
-         * This function to convert String to int. Start in specific index
-         *
-         * @param idx Int index to start cut
-         * @param text String
-         * @return Int
-         * */
-        fun stringToInt(idx:Int? = 0, text: String): Int {
-            val cutString = if (idx!! > 0) text.substring(idx) else text
-            return cutString.toInt()
-        }
-
-        /**
-         *
          * This function to evaluates RFC (10 and 13 chars).
-         *
          * @param rfc String
-         * @return boolean rfc is valid
+         * @return Boolean
          */
         fun isRFCValid(rfc: String): Boolean {
-            return when{
+            return when {
                 TextUtils.isEmpty(rfc) -> false
                 else -> {
                     if (rfc.length == 10) {
@@ -131,6 +112,19 @@ class DDRString {
                     }
                 }
             }
+        }
+
+        /**
+         * Convert String to Int. Start in specific index
+         * Example: 'ITEM04' (index = 4) '04' -> 4
+         * Example: '04' (index = 0) '04' -> 4
+         * @param index Int index to start cut
+         * @param text String
+         * @return Int
+         * */
+        fun stringToInt(text: String, index: Int? = 0): Int {
+            val cutString = if (index!! > 0) text.substring(index) else text
+            return cutString.toInt()
         }
     }
 }
