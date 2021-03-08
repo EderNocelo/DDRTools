@@ -60,7 +60,6 @@ afterEvaluate {
                 setGroupId versions.groupId
                 setArtifactId versions.artifactId
                 version versions.name
-                artifact bundleReleaseAar
             }
             // Creates a Maven publication called “debug”.
             debug(MavenPublication) {
