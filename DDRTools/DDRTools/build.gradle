@@ -31,6 +31,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -38,18 +41,13 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}"
+    implementation "com.airbnb.android:paris:${versions.arbnbParis}"
+    
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-}
-
-subprojects {
-    apply(plugin = "java")
-    java {
-        withSourcesJar()
-        withJavadocJar()
-    }
 }
 
 afterEvaluate {
@@ -59,6 +57,10 @@ afterEvaluate {
             release(MavenPublication) {
                 // Applies the component for the release build variant.
                 from components.release
+                setGroupId versions.groupId
+                setArtifactId versions.artifactId
+                version versions.name
+                artifact bundleReleaseAar
             }
             // Creates a Maven publication called “debug”.
             debug(MavenPublication) {

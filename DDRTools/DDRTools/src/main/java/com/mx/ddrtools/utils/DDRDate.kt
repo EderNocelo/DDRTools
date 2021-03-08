@@ -109,5 +109,8 @@ class DDRDate {
             val time = DateFormat.format("HH:mm:ss", currentDate) as String
             return "$dayNumber de ${monthNameByPosition(monthNumber)} a las $time Hrs."
         }
+
+
+
     }
 }

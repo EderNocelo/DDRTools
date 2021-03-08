@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="RotateLoader">
+        <attr name="rotateStrokeWidth" format="dimension"/>
+        <attr name="rotateColor" format="integer|reference"/>
+        <attr name="rotateShadowPosition" format="integer"/>
+        <attr name="rotateSpeed" format="integer"/>
+        <attr name="rotateAutoPlay" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="LimitedRecyclerView">
+        <attr name="maxHeightLimit" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="DDRItemHolderView">
+        <attr name="holderTextTitle" format="string"/>
+        <attr name="holderTextTitleSize" format="dimension"/>
+        <attr name="holderTextTitleFont" format="reference"/>
+        <attr name="holderTextTitleColor" format="color|reference"/>
+        <attr name="holderIcon" format="integer|reference"/>
+        <attr name="holderIconColor" format="integer|reference"/>
+        <attr name="holderBackground" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="DDRItemContentView">
+        <!-- TITLE ATTRIBUTES -->
+        <attr name="itemTextTitle" format="string"/>
+        <attr name="itemTextTitleSize" format="dimension"/>
+        <attr name="itemTextTitleFont" format="reference"/>
+        <attr name="itemTextTitleColor" format="color|reference"/>
+        <!-- SUBTITLE ATTRIBUTES -->
+        <attr name="itemTextSubTitle" format="string"/>
+        <attr name="itemTextSubTitleSize" format="dimension"/>
+        <attr name="itemTextSubTitleFont" format="reference"/>
+        <attr name="itemTextSubTitleColor" format="color|reference"/>
+        <attr name="itemIcon" format="reference"/>
+        <attr name="itemIconColor" format="reference"/>
+        <attr name="itemBackground" format="reference"/>
+    </declare-styleable>
+
+</resources>
