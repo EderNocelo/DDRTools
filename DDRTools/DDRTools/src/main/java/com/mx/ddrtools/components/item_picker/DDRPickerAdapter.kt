@@ -20,6 +20,7 @@ import android.view.ViewGroup
 import androidx.annotation.ColorRes
 import androidx.annotation.StyleRes
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.paris.extensions.style
 import com.mx.ddrtools.databinding.DdrPickerItemBinding
 import com.mx.ddrtools.model.DDRItemPicker
 import com.mx.ddrtools.utils.DDRView
@@ -53,7 +54,7 @@ class DDRPickerAdapter(
                 // Set style
                 style?.let {
                     // change style for label
-                    DDRView.setTextViewStyle(tvName, it)
+                    tvName.style(it)
                 }
                 // Set tint color of checkbox
                 tintColor?.let {

@@ -7,13 +7,14 @@
     android:layout_height="match_parent"
     android:background="@drawable/abc_vector_test">
 
-    <Button
-        android:id="@+id/btnAction"
+    <com.mx.ddrtools.components.views.DDRTitleDescriptionView
+        android:id="@+id/supplyParams"
         android:visibility="visible"
         android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        app:subtitleTextStyle="@style/ProjectParamsStyle_subtitle"
+        app:titleTextStyle="@style/ProjectParamsStyle_title"/>
 
     <com.mx.ddrtools.components.views.RotateLoader
         android:id="@+id/rotate"

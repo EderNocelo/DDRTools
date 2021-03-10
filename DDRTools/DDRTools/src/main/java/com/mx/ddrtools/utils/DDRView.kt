@@ -22,19 +22,6 @@ import org.jetbrains.annotations.NotNull
 class DDRView {
     companion object {
         /**
-         * Set text appearance of TextView
-         * @param view current TextView
-         * @param style current style
-         */
-        fun setTextViewStyle(@NotNull view: TextView, @StyleRes style: Int) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                view.setTextAppearance(style)
-            } else {
-                view.setTextAppearance(view.context, style)
-            }
-        }
-
-        /**
          * Set tint color of current CheckBox button
          * @param chk current TextView
          * @param color current color resource

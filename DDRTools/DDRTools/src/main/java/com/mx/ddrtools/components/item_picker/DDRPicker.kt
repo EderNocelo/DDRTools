@@ -25,6 +25,7 @@ import androidx.annotation.StyleRes
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.airbnb.paris.extensions.style
 import com.mx.ddrtools.R
 import com.mx.ddrtools.databinding.DdrPickerDialogBinding
 import com.mx.ddrtools.model.DDRItemPicker
@@ -75,7 +76,7 @@ class DDRPicker(
             // configure text view
             tvPickerTitle.text = it
             titleStyle?.let { style ->
-                DDRView.setTextViewStyle(tvPickerTitle, style)
+                tvPickerTitle.style(style)
             }
             return@let
         } ?: run {
