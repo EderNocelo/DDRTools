@@ -32,16 +32,26 @@ class DDRTitleDescriptionView @JvmOverloads constructor(
                 R.styleable.DDRTitleDescriptionView_titleTextStyle,
                 R.style.DDRItemTitleDescription_Title
             )
+            val titleValue = styledAttributes.getResourceId(
+                R.styleable.DDRTitleDescriptionView_titleText,
+                R.string.ddr_common_title
+            )
 
             // ATTRS FOR SUBTITLE
             val subtitleStyle = styledAttributes.getResourceId(
                 R.styleable.DDRTitleDescriptionView_subtitleTextStyle,
                 R.style.DDRItemTitleDescription_Subtitle
             )
+            val subtitleValue = styledAttributes.getResourceId(
+                R.styleable.DDRTitleDescriptionView_subtitleText,
+                R.string.ddr_common_subtitle
+            )
 
             // apply styles
             setTitleStyle(titleStyle)
             setSubtitleStyle(subtitleStyle)
+            setTitle(titleValue)
+            setSubtitle(subtitleValue)
 
             styledAttributes.recycle()
         }

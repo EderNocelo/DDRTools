@@ -32,12 +32,17 @@ class DDRItemHolderView @JvmOverloads constructor(
                 R.styleable.DDRItemHolderView_holderTextStyle,
                 R.style.DDRItemHolder_Title
             )
+            val titleValue = styledAttributes.getResourceId(
+                R.styleable.DDRItemHolderView_holderText,
+                R.string.ddr_common_title
+            )
 
             val itemIcon = styledAttributes.getResourceId(R.styleable.DDRItemHolderView_holderIcon, 0)
             val itemIconColor = styledAttributes.getResourceId(R.styleable.DDRItemHolderView_holderIconColor, R.color.white)
             val itemBackground = styledAttributes.getResourceId(R.styleable.DDRItemHolderView_holderBackground, 0)
 
             setTitleStyle(titleStyle)
+            setTitle(titleValue)
             setItemIcon(itemIcon, itemIconColor)
             setItemBackground(itemBackground)
 

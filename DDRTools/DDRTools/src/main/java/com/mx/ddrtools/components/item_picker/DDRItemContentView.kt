@@ -35,11 +35,19 @@ class DDRItemContentView @JvmOverloads constructor(
                 R.styleable.DDRItemContentView_itemTitleTextStyle,
                 R.style.DDRItemContent_Title
             )
+            val titleValue = styledAttributes.getResourceId(
+                R.styleable.DDRItemContentView_itemTitleText,
+                R.string.ddr_common_title
+            )
 
             // ATTRS FOR SUBTITLE
             val subtitleStyle = styledAttributes.getResourceId(
                 R.styleable.DDRItemContentView_itemSubtitleTextStyle,
                 R.style.DDRItemContent_Subtitle
+            )
+            val subtitleValue = styledAttributes.getResourceId(
+                R.styleable.DDRItemContentView_itemSubtitleText,
+                R.string.ddr_common_subtitle
             )
 
             val itemIcon = styledAttributes.getResourceId(R.styleable.DDRItemContentView_itemIcon, 0)
@@ -48,6 +56,8 @@ class DDRItemContentView @JvmOverloads constructor(
 
             setTitleStyle(titleStyle)
             setSubtitleStyle(subtitleStyle)
+            setTitle(titleValue)
+            setSubtitle(subtitleValue)
             setItemIcon(itemIcon, itemIconColor)
             setItemBackground(itemBackground)
 

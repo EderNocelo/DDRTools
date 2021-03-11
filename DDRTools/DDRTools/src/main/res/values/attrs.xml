@@ -16,6 +16,7 @@
     <declare-styleable name="DDRItemHolderView">
         <!-- TITLE STYLE -->
         <attr name="holderTextStyle" format="reference"/>
+        <attr name="holderText" format="reference"/>
         <!-- ICON -->
         <attr name="holderIcon" format="integer|reference"/>
         <attr name="holderIconColor" format="integer|reference"/>
@@ -25,8 +26,10 @@
     <declare-styleable name="DDRItemContentView">
         <!-- TITLE STYLE -->
         <attr name="itemTitleTextStyle" format="reference"/>
+        <attr name="itemTitleText" format="reference"/>
         <!-- SUBTITLE STYLE -->
         <attr name="itemSubtitleTextStyle" format="reference"/>
+        <attr name="itemSubtitleText" format="reference"/>
         <!-- ICON -->
         <attr name="itemIcon" format="reference"/>
         <attr name="itemIconColor" format="reference"/>
@@ -36,8 +39,10 @@
     <declare-styleable name="DDRTitleDescriptionView">
         <!-- TITLE ATTRIBUTES -->
         <attr name="titleTextStyle" format="reference"/>
+        <attr name="titleText" format="reference"/>
         <!-- SUBTITLE ATTRIBUTES -->
         <attr name="subtitleTextStyle" format="reference"/>
+        <attr name="subtitleText" format="reference"/>
     </declare-styleable>
 
 </resources>

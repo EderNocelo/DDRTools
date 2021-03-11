@@ -3,4 +3,6 @@
     <!-- COMMON STRINGS -->
     <string name="ddr_common_accept">Aceptar</string>
     <string name="ddr_common_cancel">Cancelar</string>
+    <string name="ddr_common_title">Título</string>
+    <string name="ddr_common_subtitle">Subtítulo</string>
 </resources>
