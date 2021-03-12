@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -7,8 +7,7 @@
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
     android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:orientation="vertical">
+    android:paddingRight="10dp">
 
     <TextView
         android:id="@+id/tvPickerTitle"
@@ -16,19 +15,28 @@
         android:layout_height="wrap_content"
         android:textAlignment="textStart"
         android:paddingStart="5dp"
-        android:paddingEnd="5dp" />
+        android:paddingEnd="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <com.mx.ddrtools.components.views.LimitedRecyclerView
         android:id="@+id/mainRVPicker"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:layout_marginTop="10dp"
-        app:maxHeightLimit="350"/>
+        app:maxHeightLimit="350"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPickerTitle"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainRVPicker">
 
         <Button
             android:id="@+id/btnCancel"
@@ -45,4 +53,4 @@
 
     </RelativeLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
