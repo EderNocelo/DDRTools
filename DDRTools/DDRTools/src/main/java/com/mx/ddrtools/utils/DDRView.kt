@@ -46,19 +46,18 @@ class DDRView {
         fun setButtonStyle(@NotNull btn: Button, @NotNull context: Context, @StyleRes style: Int) {
             // order is very important !
             val attrs = intArrayOf(
-                android.R.attr.textSize, //0
-                android.R.attr.text, //1
-                android.R.attr.textColor, //2
-                android.R.attr.fontFamily, //3
-                android.R.attr.backgroundTint //4
+                android.R.attr.textColor, // 0
+                android.R.attr.text, // 1
+                android.R.attr.fontFamily, // 2
+                android.R.attr.backgroundTint // 3
             )
 
             val ta: TypedArray = context.obtainStyledAttributes(style, attrs)
 
             val text =  ta.getText(1)
-            val textColor = ta.getColor(2, Color.BLACK)
-            val backgroundColor = ta.getColor(4, Color.BLACK)
-            val fontId = ta.getResourceId(3, -1)
+            val textColor = ta.getColor(0, Color.BLACK)
+            val backgroundColor = ta.getColor(3, Color.BLACK)
+            val fontId = ta.getResourceId(2, -1)
 
             val typeface = if (fontId > 0) {
                 ResourcesCompat.getFont(context, fontId)

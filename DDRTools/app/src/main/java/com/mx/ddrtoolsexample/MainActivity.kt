@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         rootView.supplyParams.setTitle("Project")
         rootView.supplyParams.setSubtitle("THOMASAN")
 
-        /*rootView.btnAction.setOnClickListener {
+        rootView.btnTest.setOnClickListener {
 
             /*DDRSnackBar.make(
                  view = rootView.root,
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
             }.show(supportFragmentManager,"TG")
 
 
-        }*/
+        }
 
 
     }

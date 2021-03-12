@@ -10,7 +10,7 @@
     <style name="buttonCancelTheme">
         <item name="android:backgroundTint">@color/teal_200</item>
         <item name="android:text">@string/app_name</item>
-        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">50sp</item>
         <item name="android:fontFamily">@font/source_sans_pro_semi_bold</item>
     </style>
