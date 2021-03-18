@@ -38,7 +38,7 @@ class DDRSnackBar(
                 android.R.color.transparent
             )
         )
-        getView().setPadding(0, 0, 0, 0)
+        getView().setPadding(5, 5, 5, 5)
     }
 
     companion object {

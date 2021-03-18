@@ -11,7 +11,7 @@
 
     <TextView
         android:id="@+id/tvPickerTitle"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingStart="5dp"
         android:paddingEnd="5dp"
