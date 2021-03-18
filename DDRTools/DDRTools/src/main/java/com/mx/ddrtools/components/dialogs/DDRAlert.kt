@@ -18,12 +18,10 @@ package com.mx.ddrtools.components.dialogs
 import android.content.Context
 import androidx.appcompat.app.AlertDialog
 import com.mx.ddrtools.R
-import com.mx.ddrtools.model.DDRItemPicker
 import org.jetbrains.annotations.NotNull
 
 class DDRAlert {
     companion object{
-
         /**
          * Displays AlertDialog with custom title and message, includes 'acceptButton' as default with listener. Only add negative button when 'cancelTitle' is not null.
          * @param title String
@@ -59,7 +57,5 @@ class DDRAlert {
                 }
             }.show()
         }
-
-
     }
 }

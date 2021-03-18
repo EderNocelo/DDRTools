@@ -49,6 +49,7 @@ class DDRSnackBar(
             @DrawableRes icon: Int? = null,
             @DrawableRes background: Int = R.drawable.custom_snack_bar_background,
             @StyleRes messageStyle: Int = R.style.DDRSnackBarTextStyle,
+            status:Boolean ? = null,
             onClick: (DDRSnackBar) -> Unit
         ): DDRSnackBar {
 
@@ -64,8 +65,13 @@ class DDRSnackBar(
                 false
             ) as DDRSnackBarView
 
+            status?.let {
+                customView.setStatus(it)
+            }
+
             customView.setBackground(background)
-            customView.setMessage(message, messageStyle)
+            customView.setMessage(message)
+            customView.setMessageStyle(messageStyle)
             customView.setIconResource(icon)
 
             val instance = DDRSnackBar(

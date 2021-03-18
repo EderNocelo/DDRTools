@@ -15,7 +15,6 @@ limitations under the License.
  * */
 package com.mx.ddrtools.components.dialogs
 
-import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle

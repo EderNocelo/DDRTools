@@ -2,14 +2,11 @@ package com.mx.ddrtools.components.item_picker
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.LayoutInflater
-import android.view.View
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import com.airbnb.paris.extensions.style
 import com.mx.ddrtools.R
 import com.mx.ddrtools.databinding.DdrItemContentPickerBinding

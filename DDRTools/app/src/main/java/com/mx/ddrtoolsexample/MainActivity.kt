@@ -29,11 +29,12 @@ class MainActivity : AppCompatActivity() {
         rootView.btnTest.setOnClickListener {
 
             /*DDRSnackBar.make(
-                 view = rootView.root,
-                 message = R.string.app_name,
-                 icon = R.drawable.image,
-                 background = R.drawable.common_snackbar_background,
-                 messageStyle = R.style.snackBarStyle
+                view = rootView.root,
+                message = R.string.app_name,
+                icon = R.drawable.image,
+                background = R.drawable.common_snackbar_background,
+                messageStyle = R.style.snackBarStyle,
+                status = true
             ){ // onClick action
                 it.dismiss()
             }.show()*/
@@ -73,6 +74,7 @@ class MainActivity : AppCompatActivity() {
                 title = "Título",
                 acceptButtonStyle = R.style.buttonAcceptTheme,
                 cancelButtonStyle = R.style.buttonCancelTheme,
+                titleStyle = R.style.DDRPicker_Title_EX,
                 cancelable = false
             ) {
 

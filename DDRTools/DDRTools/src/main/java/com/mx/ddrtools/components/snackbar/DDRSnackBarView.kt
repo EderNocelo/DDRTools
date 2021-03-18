@@ -17,15 +17,16 @@ package com.mx.ddrtools.components.snackbar
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.airbnb.paris.extensions.style
 import com.google.android.material.snackbar.ContentViewCallback
 import com.mx.ddrtools.R
+import com.mx.ddrtools.databinding.CustomSnackBarBinding
 
 class DDRSnackBarView @JvmOverloads constructor(
     context: Context,
@@ -33,35 +34,36 @@ class DDRSnackBarView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr), ContentViewCallback {
 
-    private var ivIcon: ImageView
-    private var tvMessage: TextView
+    private var viewBinding: CustomSnackBarBinding = CustomSnackBarBinding.inflate(
+        LayoutInflater.from(context), this, true
+    )
 
     init {
         View.inflate(context, R.layout.custom_snack_bar, this)
         clipToPadding = false
-        ivIcon = findViewById(R.id.ivSBIcon)
-        tvMessage = findViewById(R.id.tvSBMessage)
     }
 
-    fun setBackground(@DrawableRes background: Int) {
-        rootView.setBackgroundResource(background)
-    }
+    fun setBackground(@DrawableRes background: Int) = rootView.setBackgroundResource(background)
 
-    fun setMessage(@StringRes message:Int, @StyleRes textAppearance:Int) {
-        tvMessage.setText(message)
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            tvMessage.setTextAppearance(textAppearance)
-        }else{
-            tvMessage.setTextAppearance(context,textAppearance)
+    fun setMessage(@StringRes message: Int) = viewBinding.apply { tvSBMessage.setText(message) }
+
+    fun setMessageStyle(@StyleRes textAppearance: Int?) = viewBinding.apply {
+        textAppearance?.let {
+            tvSBMessage.style(it)
         }
     }
 
-    fun setIconResource(@DrawableRes icon: Int?) {
+    fun setIconResource(@DrawableRes icon: Int?) = viewBinding.apply {
         icon?.let {
-            ivIcon.setImageResource(icon)
-        } ?: run{
-            ivIcon.visibility = View.GONE
+            ivSBIcon.setImageResource(icon)
+        } ?: run {
+            ivSBIcon.visibility = View.GONE
         }
+    }
+
+    fun setStatus(status: Boolean) = viewBinding.apply {
+        ivStatusIcon.visibility = View.VISIBLE
+        ivStatusIcon.setImageResource(if (status) R.drawable.ic_done_rounded else R.drawable.ic_cancel_rounded)
     }
 
     override fun animateContentIn(delay: Int, duration: Int) {}
