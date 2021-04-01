@@ -57,7 +57,7 @@ class DDRSnackBarView @JvmOverloads constructor(
         icon?.let {
             ivSBIcon.setImageResource(icon)
         } ?: run {
-            ivSBIcon.visibility = View.GONE
+            rlIconContainer.visibility = View.GONE
         }
     }
 
