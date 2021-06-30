@@ -54,7 +54,7 @@ class DDRDate {
          * @param position Any
          * @return String
          */
-        fun monthNameByPosition(position: Any, upperCased: Boolean = false): String {
+        fun monthNameByPosition(position: Any, upperCased: Boolean = false, shortName: Boolean = false): String {
             if (position is String || position is Int) {
                 var idx = 0
                 idx = if (position is String) {
@@ -65,18 +65,18 @@ class DDRDate {
                 if (idx in 1..12) {
                     val month = String.format("%02d", idx)
                     val monthName = when {
-                        month.equals("01", ignoreCase = true) -> "Enero"
-                        month.equals("02", ignoreCase = true) -> "Febrero"
-                        month.equals("03", ignoreCase = true) -> "Marzo"
-                        month.equals("04", ignoreCase = true) -> "Abril"
-                        month.equals("05", ignoreCase = true) -> "Mayo"
-                        month.equals("06", ignoreCase = true) -> "Junio"
-                        month.equals("07", ignoreCase = true) -> "Julio"
-                        month.equals("08", ignoreCase = true) -> "Agosto"
-                        month.equals("09", ignoreCase = true) -> "Septiembre"
-                        month.equals("10", ignoreCase = true) -> "Octubre"
-                        month.equals("11", ignoreCase = true) -> "Noviembre"
-                        month.equals("12", ignoreCase = true) -> "Diciembre"
+                        month.equals("01", ignoreCase = true) -> if (shortName) "ENE" else "Enero"
+                        month.equals("02", ignoreCase = true) -> if (shortName) "FEB" else "Febrero"
+                        month.equals("03", ignoreCase = true) -> if (shortName) "MAR" else "Marzo"
+                        month.equals("04", ignoreCase = true) -> if (shortName) "ABR" else "Abril"
+                        month.equals("05", ignoreCase = true) -> if (shortName) "MAY" else "Mayo"
+                        month.equals("06", ignoreCase = true) -> if (shortName) "JUN" else "Junio"
+                        month.equals("07", ignoreCase = true) -> if (shortName) "JUL" else "Julio"
+                        month.equals("08", ignoreCase = true) -> if (shortName) "AGO" else "Agosto"
+                        month.equals("09", ignoreCase = true) -> if (shortName) "SEP" else "Septiembre"
+                        month.equals("10", ignoreCase = true) -> if (shortName) "OCT" else "Octubre"
+                        month.equals("11", ignoreCase = true) -> if (shortName) "NOV" else "Noviembre"
+                        month.equals("12", ignoreCase = true) -> if (shortName) "DIC" else "Diciembre"
                         else -> ""
                     }
                     return if (upperCased) monthName.toUpperCase(Locale.getDefault()) else monthName
