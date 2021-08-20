@@ -15,6 +15,7 @@ limitations under the License.
  * */
 package com.mx.ddrtools.components.dialogs
 
+import android.animation.ValueAnimator
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -22,15 +23,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
-import androidx.annotation.ColorRes
 import androidx.fragment.app.DialogFragment
-import com.mx.ddrtools.R
-import com.mx.ddrtools.databinding.DdrLoaderBinding
+import com.airbnb.lottie.LottieDrawable
+import com.mx.ddrtools.databinding.DdrLottieLoaderBinding
+import org.jetbrains.annotations.NotNull
 
-class DDRLoader(@ColorRes private val loaderColor:Int? = R.color.white
-                , private val  lottieFile:String? = null) : DialogFragment(){
+class DDRLottieLoader (@NotNull private val lottieFile:String) : DialogFragment(){
 
-    private lateinit var binding : DdrLoaderBinding
+    private lateinit var binding : DdrLottieLoaderBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,13 +39,17 @@ class DDRLoader(@ColorRes private val loaderColor:Int? = R.color.white
     ): View {
         dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        binding = DdrLoaderBinding.inflate(
+        binding = DdrLottieLoaderBinding.inflate(
             LayoutInflater.from(requireContext()),
             container,
             false
         )
-        binding.rotate.setLoaderColor(loaderColor!!)
-        binding.rotate.start()
+        binding.apply {
+            lottieView.setAnimation(lottieFile)
+            lottieView.repeatMode = LottieDrawable.RESTART
+            lottieView.repeatCount = ValueAnimator.INFINITE
+            lottieView.playAnimation()
+        }
         return binding.root
     }
 }

@@ -8,12 +8,13 @@ buildscript {
             'minSdk'          : 21,
             'targetSdk'       : 29,
             'buildTools'      : '29.0.3',
-            'name'            : '0.0.16',
-            'code'            : 16,
+            'name'            : '0.0.17',
+            'code'            : 17,
             'groupId'         : 'com.mx.egnocelo',
             'artifactId'      : 'ddrtools',
             'constraintLayout': '2.0.4',
-            'arbnbParis'      : '1.7.2'
+            'arbnbParis'      : '1.7.2',
+            'arbnbLottie'     : '3.4.0'
     ]
     repositories {
         google()

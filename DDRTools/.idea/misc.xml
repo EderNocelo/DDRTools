@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectPlainTextFileTypeManager">
-    <file url="file://$PROJECT_DIR$/DDRTools/src/main/java/com/mx/ddrtools/components/bottomsheet/BottomSheetDialogFragment.kt" />
-    <file url="file://$PROJECT_DIR$/DDRTools/src/main/java/com/mx/ddrtools/components/bottomsheet/DDRBottomSheet.kt" />
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="DDRTools/src/main/res/layout/ddr_loader.xml" value="0.12092391304347826" />
+        <entry key="DDRTools/src/main/res/layout/ddr_lottie_loader.xml" value="0.21822916666666667" />
+        <entry key="DDRTools/src/main/res/layout/ddr_picker_item.xml" value="0.12092391304347826" />
+      </map>
+    </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

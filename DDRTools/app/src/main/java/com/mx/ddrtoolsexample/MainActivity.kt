@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.mx.ddrtools.components.dialogs.DDRLoader
+import com.mx.ddrtools.components.dialogs.DDRLottieLoader
 import com.mx.ddrtools.components.item_picker.DDRPicker
 import com.mx.ddrtools.components.snackbar.DDRSnackBar
 import com.mx.ddrtools.model.DDRItemPicker
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             loaderDialogFragment.show(this.supportFragmentManager, "PROGRESS_TAG")*/
 
 
-            var elements = arrayListOf(
+            /*var elements = arrayListOf(
                 DDRItemPicker(id = "1", name = "FOLIO 123456", selected = false),
                 DDRItemPicker(id = "2", name = "FOLIO 123456", selected = false),
                 DDRItemPicker(id = "3", name = "FOLIO 123456", selected = false),
@@ -78,9 +79,11 @@ class MainActivity : AppCompatActivity() {
                 cancelable = false
             ) {
 
-            }.show(supportFragmentManager,"TG")
+            }.show(supportFragmentManager,"TG")*/
 
-
+            var loaderDialogFragment = DDRLottieLoader("splash_animation.json")
+            loaderDialogFragment.isCancelable = false
+            loaderDialogFragment.show(this.supportFragmentManager, "PROGRESS_TAG")
         }
 
 
